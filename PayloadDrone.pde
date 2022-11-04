@@ -5,4 +5,7 @@ class PayloadDrone extends Drone {
     mass = 8;
   }
   
+  void drawDrone() {
+    
+  }
 }

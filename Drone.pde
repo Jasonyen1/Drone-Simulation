@@ -4,6 +4,7 @@ class Drone {
   PVector acceleration;
   float maxSpeed;
   float mass; // kilograms
+  final int diameter = 30;
   
   Drone(PVector startPos, PVector startVel) {
     position = startPos;
@@ -31,5 +32,9 @@ class Drone {
   void applyForce(PVector force) {
     acceleration.x = force.x / mass;
     acceleration.y = force.y / mass;
+  }
+  
+  void drawDrone() {
+    
   }
 }

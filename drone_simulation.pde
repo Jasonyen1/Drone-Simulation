@@ -5,10 +5,12 @@ String image = ""; // name of image file, file needs to be in same folder as cod
 void setup() {
   frameRate(fps);
   size(640, 360); // needs to be exactly the dimensions of the background image
-  loadImage(image);
+  //loadImage(image);
 }
 
 void draw() {
-  loadImage(image);
+  //loadImage(image);
   //redraw drones here
+  Fleet fleet = new Fleet(4, 2, 12);
+  
 }

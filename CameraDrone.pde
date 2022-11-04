@@ -5,4 +5,10 @@ class CameraDrone extends Drone {
     mass = 3;
   }
   
+  void drawDrone() {
+    fill(100, 200, 100);
+    circle(position.x, position.y, diameter);
+  }
+  
+  void 
 }

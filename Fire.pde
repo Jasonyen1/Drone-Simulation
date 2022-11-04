@@ -6,4 +6,15 @@ class Fire {
     position.y = y;
   }
   
+  void drawFire() {
+    
+  }
+  
+  void spread() {
+    
+  }
+  
+  void grow() {
+    
+  }
 }
