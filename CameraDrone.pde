@@ -10,5 +10,4 @@ class CameraDrone extends Drone {
     circle(position.x, position.y, diameter);
   }
   
-  void 
 }

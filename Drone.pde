@@ -34,7 +34,10 @@ class Drone {
     acceleration.y = force.y / mass;
   }
   
-  void drawDrone() {
-    
+  void drawDrone() { }
+  
+  void tick() {
+    updateVelocity();
+    updatePosition();
   }
 }
