@@ -1,4 +1,4 @@
-class Fleet {
+/*class Fleet {
   ArrayList<Drone> active;
   ArrayList<Drone> inactive;
   
@@ -24,7 +24,7 @@ class Fleet {
   
   
   void tick() {
-    for (Drone drone : active) {drone.tick()}
+    //for (Drone drone : active) {drone.tick()}
   }
   
   
@@ -99,4 +99,5 @@ class Fleet {
       if (active.get(i) instanceof WaterDrone) {count++;}
     } }
     return count;
-}
+  }
+}*/

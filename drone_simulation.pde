@@ -1,16 +1,51 @@
 int fps = 60;
+int frames = 0;
 float deltaT = 1/fps;
-String image = ""; // name of image file, file needs to be in same folder as code
+PImage img;
+
+ArrayList<Fire> fires = new ArrayList<Fire>();
+  
+void drawFires() {
+  strokeWeight(0);
+  for (Fire f : fires) {
+    f.drawFire();
+  }
+}
+
+void updateFires() {
+  for (Fire f : fires) {
+    f.enlarge();
+    f.intensify();
+  }
+}
+
+void spreadFires() {
+  ArrayList<Fire> newFires = new ArrayList<Fire>();
+  for (Fire f : fires) {
+    newFires.add(f.spread(fires.size()));
+  }
+  for (Fire f : newFires) {
+    if (f != null) {
+      fires.add(f);
+    }
+  }
+}
 
 void setup() {
   frameRate(fps);
-  size(640, 360); // needs to be exactly the dimensions of the background image
-  //loadImage(image);
+  size(displayWidth, displayHeight); // needs to be exactly the dimensions of the background image
+  img = loadImage("background.png"); // name of image file, file needs to be in same folder as code
+  fires.add(new Fire(random(displayWidth/4, displayWidth*3/4), random(displayHeight/4, displayHeight *3/4)));
+  drawFires();
 }
 
 void draw() {
-  //loadImage(image);
+  image(img, 0, 0);
   //redraw drones here
-  Fleet fleet = new Fleet(4, 2, 12);
-  
+  //Fleet fleet = new Fleet(4, 2, 12);
+  updateFires();
+  if (frames++ % 10 == 0) {
+    spreadFires();
+  }
+  drawFires();
 }
