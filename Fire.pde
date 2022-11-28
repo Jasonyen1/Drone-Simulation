@@ -25,7 +25,7 @@ class Fire {
   }
   
   void enlarge() {
-    if (random(1, 100) > 3) {
+    if (radius >= 35 || random(1, 100) > 3) {
       return;
     }
     radius += 1;
