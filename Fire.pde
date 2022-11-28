@@ -39,3 +39,32 @@ class Fire {
     }
   }
 }
+
+
+ArrayList<Fire> fires = new ArrayList<Fire>();
+  
+void drawFires() {
+  strokeWeight(0);
+  for (Fire f : fires) {
+    f.drawFire();
+  }
+}
+
+void updateFires() {
+  for (Fire f : fires) {
+    f.enlarge();
+    f.intensify();
+  }
+}
+
+void spreadFires() {
+  ArrayList<Fire> newFires = new ArrayList<Fire>();
+  for (Fire f : fires) {
+    newFires.add(f.spread(fires.size()));
+  }
+  for (Fire f : newFires) {
+    if (f != null) {
+      fires.add(f);
+    }
+  }
+}
