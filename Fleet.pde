@@ -24,7 +24,7 @@ class Fleet {
   
   
   void tick() {
-    for (Drone drone : active) {drone.tick()}
+    for (Drone drone : active) {drone.tick();}
   }
   
   
@@ -71,8 +71,8 @@ class Fleet {
     for (int i = 0; i < inactive.size(); i++) {
       if (inactive.get(i) instanceof CameraDrone) {count++;}
     } } else {
-    for (int i = 0; i < active.size(); i++) {
-      if (active.get(i) instanceof CameraDrone) {count++;}
+    for (int i = 0; i < this.active.size(); i++) {
+      if (this.active.get(i) instanceof CameraDrone) {count++;}
     } }
     return count;
   }
@@ -83,8 +83,8 @@ class Fleet {
     for (int i = 0; i < inactive.size(); i++) {
       if (inactive.get(i) instanceof SurvivalDrone) {count++;}
     } } else {
-    for (int i = 0; i < active.size(); i++) {
-      if (active.get(i) instanceof SurvivalDrone) {count++;}
+    for (int i = 0; i < this.active.size(); i++) {
+      if (this.active.get(i) instanceof SurvivalDrone) {count++;}
     } }
     return count;
   }
@@ -95,8 +95,9 @@ class Fleet {
     for (int i = 0; i < inactive.size(); i++) {
       if (inactive.get(i) instanceof WaterDrone) {count++;}
     } } else {
-    for (int i = 0; i < active.size(); i++) {
-      if (active.get(i) instanceof WaterDrone) {count++;}
+    for (int i = 0; i < this.active.size(); i++) {
+      if (this.active.get(i) instanceof WaterDrone) {count++;}
     } }
     return count;
+  }
 }
