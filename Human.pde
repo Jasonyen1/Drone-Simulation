@@ -48,7 +48,7 @@ class Human {
       rotate(rot);
       position.rotate(-rot);
     }
-    fill(#2222dd);
+    fill(#bbddff);
     ellipse(position.x, position.y, 20, 60);
     fill(#333333);
     ellipse(position.x, position.y, 20, 20);
@@ -64,13 +64,13 @@ class Human {
     if (dSq(nearestFire().position, position) < 50000) fireNear = true;
     else fireNear = false;
     
-    if (scared()) movement = directionToNearestFire().mult(-5); 
+    if (scared()) movement = PVector.mult(directionToNearestFire(), -1); 
     else movement = new PVector();
   }
   
   void tick() {
     ai();
-    
-    position.add(movement);
+
+    this.position.add(PVector.mult(movement, 1));
   }
 }
