@@ -38,8 +38,11 @@ class Fire {
       rgb[1] = 0;
     }
   }
+  
+  PVector getPosition() {
+    return position;
+  }
 }
-
 
 ArrayList<Fire> fires = new ArrayList<Fire>();
   
