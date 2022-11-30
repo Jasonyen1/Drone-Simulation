@@ -66,14 +66,15 @@ class Human {
   void tick() {
     if (!dead){
       ai();
-    }
-    
-    this.position.add(PVector.mult(movement, 0.05));
-    
-    for (Fire fire : fires) {
-      if (dSq(position, fire.position) < fire.radius * fire.radius && !hasSurvivalGear) {
-        dead = true;
+      this.position.add(PVector.mult(movement, 0.05));
+      for (Fire fire : fires) {
+        if (dSq(position, fire.position) < fire.radius * fire.radius && !hasSurvivalGear) {
+          dead = true;
+        }
       }
+
     }
+    
+    
   }
 }

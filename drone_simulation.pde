@@ -10,9 +10,6 @@ void setup() {
   for (int i = 0; i < 2; i++)
     fires.add(new Fire(random(img.width/4, img.width*3/4), random(img.height/4, img.height *3/4)));
   drawFires();
-  for (int i = 0; i < 10; i++)
-    humans.add(new Human(new PVector(random(img.width/4, img.width*3/4), random(img.height/4, img.height *3/4))));
-
 }
 
 void draw() {
@@ -26,4 +23,8 @@ void draw() {
   for (Human h : humans) h.tick();
   drawFires();
   for (Human h : humans) h.drawHuman();
+}
+
+void mouseClicked() {
+  humans.add(new Human(new PVector(mouseX, mouseY)));
 }
