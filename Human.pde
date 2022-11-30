@@ -1,3 +1,5 @@
+ArrayList<Human> humans = new ArrayList();
+
 // Distance Squared
 float dSq(PVector lhs, PVector rhs) {
   return PVector.sub(lhs, rhs).magSq();
@@ -6,6 +8,7 @@ float dSq(PVector lhs, PVector rhs) {
 class Human {
   boolean fireNear = false;
   boolean hasSurvivalGear = false;
+  boolean dead = false;
   PVector position;
   PVector movement;
   public Human(PVector position) {
@@ -42,22 +45,14 @@ class Human {
   }
   
   void drawHuman() {
-    stroke(#ffffff);
-    if (movement.x != 0 || movement.y != 0) {
-      float rot = movement.heading();
-      rotate(rot);
-      position.rotate(-rot);
+    if (dead) {
+      fill(#000000);
+    } else if (hasSurvivalGear) {
+      fill(#0000bb);
+    } else {
+      fill(#88ccee);
     }
-    fill(#bbddff);
-    ellipse(position.x, position.y, 20, 60);
-    fill(#333333);
-    ellipse(position.x, position.y, 20, 20);
-    if (movement.x != 0 || movement.y != 0) {
-      float rot = movement.heading();
-      rotate(-rot);
-      position.rotate(rot);
-    }
-
+    square(position.x, position.y, 15);
   }
   
   void ai() {
@@ -69,8 +64,16 @@ class Human {
   }
   
   void tick() {
-    ai();
-
-    this.position.add(PVector.mult(movement, 1));
+    if (!dead){
+      ai();
+    }
+    
+    this.position.add(PVector.mult(movement, 0.05));
+    
+    for (Fire fire : fires) {
+      if (dSq(position, fire.position) < fire.radius * fire.radius && !hasSurvivalGear) {
+        dead = true;
+      }
+    }
   }
 }
