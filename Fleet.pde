@@ -16,8 +16,6 @@ class Fleet {
     }
   }
   
-  
-  
   void addDrone(Drone drone) {
     inactive.add(drone);
   }

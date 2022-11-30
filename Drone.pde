@@ -1,43 +1,36 @@
 class Drone {
   PVector position;
   PVector velocity;
-  PVector acceleration;
   float maxSpeed;
-  float mass; // kilograms
-  final int diameter = 30;
+  
+  int triLength;
+  //final int diameter = 30;
   
   Drone(PVector startPos, PVector startVel) {
     position = startPos;
     velocity = startVel;
-    acceleration = new PVector(0, 0);
   }
   
   void updatePosition() {
-    position.x += velocity.x * deltaT;
-    position.y += velocity.y * deltaT;
+    //position.x += velocity.x * deltaT;
+    //position.y += velocity.y * deltaT;
+    position.x += velocity.x;
+    position.y += velocity.y;
   }
   
-  void updateVelocity() {
+  void updateVelocity(float vx, float vy) {
     if (getSpeed() >= maxSpeed) {
       return;
     }
-    velocity.x += acceleration.x * deltaT;
-    velocity.y += acceleration.y * deltaT;
+    velocity.x = vx;
+    velocity.y = vy;
   }
   
   float getSpeed() {
     return sqrt(pow(velocity.x, 2) + pow(velocity.y, 2));
   }
   
-  void applyForce(PVector force) {
-    acceleration.x = force.x / mass;
-    acceleration.y = force.y / mass;
-  }
-  
-  void drawDrone() { }
-  
   void tick() {
-    updateVelocity();
     updatePosition();
   }
 }
